@@ -49,14 +49,19 @@ class Solution{
     public static int doUnion(int a[], int n, int b[], int m) 
     {
         //Your code here
+        // initialize the Set Data Structure for storing non-duplicate elements from both arrays
         Set<Integer> unionOfArrays = new HashSet<>();
         
+        // iterate through 1st array to store elements
         for(int i=0;i<n;i++){
             unionOfArrays.add(a[i]);
         }
         
+        // iterate through 2nd array to store the elements
         for(int i=0;i<m;i++)
             unionOfArrays.add(b[i]);
+
+        // return the size of Set containing union of both arrays
         return unionOfArrays.size();
     }
 }
