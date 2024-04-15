@@ -32,12 +32,18 @@ Constraints:
 class Solution {
     long countStrings(int n) {
         // code here
-        if(n==2)
-            return 3;
-        if(n==1)
-            return 2;
-        long ans = countStrings(n-1)+countStrings(n-2);
-        return ans%1000000007;
+        if(n==1) return 2;
+        if(n==2) return 3;
+        long n1=1;
+        long n2=1;
+        long ans=n1+n2;
+        for(int i=2;i<=n;i++)
+        {
+            n2=n1;
+            n1=ans;
+            ans=(n1+n2)%1000000007;
+        }
+        return ans;
     }
 }
 
