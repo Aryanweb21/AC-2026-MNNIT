@@ -40,3 +40,24 @@ class Solution {
         return ans%1000000007;
     }
 }
+
+//RECURSION + MEMOIZATION (DP)
+class Solution {
+    long[] memo;
+    
+    long countStrings(int n) {
+        memo = new long[n + 1];
+        return countStringsRecursive(n);
+    }
+    
+    long countStringsRecursive(int n) {
+        if (n <= 2)
+            return n == 1 ? 2 : 3;
+        
+        if (memo[n] != 0)
+            return memo[n];
+        
+        memo[n] = (countStringsRecursive(n - 1) + countStringsRecursive(n - 2)) % 1000000007;
+        return memo[n];
+    }
+}
